@@ -12,18 +12,20 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta name="description" content="正文">
+  <meta name="description" content="SetupTo Update NPM: npm install npm@latest -g. In 2015 it makes sense to use NVM.  NVM InstallationInstructions. Update NPM: npm install npm@latest -g Hexo: why can’t you use helper functions in s">
 <meta name="keywords" content="tag1,tag2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="7-grass.md">
 <meta property="og:url" content="https://zhu1531.github.io/分类/7-grass-md/index.html">
 <meta property="og:site_name" content="Gentle-wind Accessories Co. Ltd">
-<meta property="og:description" content="正文">
+<meta property="og:description" content="SetupTo Update NPM: npm install npm@latest -g. In 2015 it makes sense to use NVM.  NVM InstallationInstructions. Update NPM: npm install npm@latest -g Hexo: why can’t you use helper functions in s">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-29T08:23:27.482Z">
+<meta property="og:image" content="https://s3.amazonaws.com/ptsteadman-images/hexo.png">
+<meta property="og:updated_time" content="2019-10-09T03:39:36.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="7-grass.md">
-<meta name="twitter:description" content="正文">
+<meta name="twitter:description" content="SetupTo Update NPM: npm install npm@latest -g. In 2015 it makes sense to use NVM.  NVM InstallationInstructions. Update NPM: npm install npm@latest -g Hexo: why can’t you use helper functions in s">
+<meta name="twitter:image" content="https://s3.amazonaws.com/ptsteadman-images/hexo.png">
   
     <link rel="alternative" href="/atom.xml" title="Gentle-wind Accessories Co. Ltd" type="application/atom+xml">
   
@@ -54,7 +56,7 @@
   <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
   <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
   <link rel="stylesheet" href="/metronic/assets/corporate/css/custom.css">
-  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/red.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/blue.css">
   <link rel="stylesheet" href="/css/theme-styles.css">
   <!-- Theme styles END -->
 </head>
@@ -162,7 +164,6 @@
       </div>
       <div class="article-inner">
         
-        
         <header class="article-header">
           <ul class="blog-info">
             <!-- <li><i class="fa fa-user"></i> Anonymous</li> -->
@@ -200,8 +201,25 @@
         <div class="article-entry" itemprop="articleBody">
           
           <img alt="7-grass.md" src="/photos/photo-1518953789413-9598f0909795.jpg" />
-          <p>正文</p>
+          <div class="image-strip">
+<img src="https://s3.amazonaws.com/ptsteadman-images/hexo.png">
+</div>
 
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>To Update NPM: <code>npm install npm@latest -g</code>.</p>
+<p>In 2015 it makes sense to use NVM.  <a href="http://linoxide.com/ubuntu-how-to/install-node-js-ubuntu" target="_blank" rel="noopener">NVM Installation<br>Instructions</a>.</p>
+<p>Update NPM: <code>npm install npm@latest -g</code></p>
+<p>Hexo: why can’t you use helper functions in source code?<br>This should be in docs.</p>
+<h2 id="Creating-a-Custom-Index-File-in-Hexo"><a href="#Creating-a-Custom-Index-File-in-Hexo" class="headerlink" title="Creating a Custom Index File in Hexo"></a>Creating a Custom Index File in Hexo</h2><p>Trying to generate a custom index file in source, hexo would ignore<br><code>source/index.md</code> no matter what I did.  What I had to do was uninstall<br><code>hexo-generator-index</code>.  <a href="https://github.com/hexojs/hexo/issues/1077" target="_blank" rel="noopener">See<br>here</a>.  Then it works.  So, that<br>will be part of the setup for my theme.  But, it’s worth it in order to properly<br>seperate the theme from the content, I think.  Having everyone edit the theme<br>index.ejs template is no good.</p>
+<h2 id="Hexo-Rendering-Raw-EJS-File-Problem-I-Encountered"><a href="#Hexo-Rendering-Raw-EJS-File-Problem-I-Encountered" class="headerlink" title="Hexo Rendering Raw EJS File Problem I Encountered"></a>Hexo Rendering Raw EJS File Problem I Encountered</h2><p>Sometimes the server would keep rendering an old version of my code, but as<br>text.  So I’d see stuff like</p>
+<pre><code>&lt;% if (site.tags.length){ %&gt;</code></pre><p>The raw ejs, essentially.  Restarting the server or running <code>hexo clean</code> didn’t<br>do anything.</p>
+<p>After some time, I realized it was due to the gedit swap files being read by<br>hexo as the actual layout files: for example, <code>tag.ejs~</code>.  My <code>partial</code> helpers<br>looked like: <code>&lt;%- partial(&#39;_partials/tag&#39;) %&gt;</code>, and apparently hexo was reading<br>in <code>tag.ejs~</code> instead of <code>tag.ejs</code>.  And therefore, the ejs wasn’t rendering.</p>
+<p>To fix this, I simply changed my partial helper to <code>&lt;%-
+partial(&#39;_partials/tag.ejs&#39;) %&gt;</code>.  Problem solved.</p>
+<h2 id="Hexo-Excerpt-Variable"><a href="#Hexo-Excerpt-Variable" class="headerlink" title="Hexo Excerpt Variable"></a>Hexo Excerpt Variable</h2><p>I was confused by the behavior of the hexo <code>excerpt</code> variable.  If you define<br><code>excerpt: something</code> in the front matter, hexo ignores that.  Instead, to get it<br>to work, one needs to add a <code>&lt;!-- more --&gt;</code> comment in the source of the post.<br>Or, you can install a plugin that allows you to define custom excerpt in the<br>front matter.</p>
+<h2 id="Scripts-Directory"><a href="#Scripts-Directory" class="headerlink" title="Scripts Directory"></a>Scripts Directory</h2><p>One of the things I really discovered too late is the “Scripts” directory in the<br>theme folder.  In Hexo, the various plugins drive the structure of the site, as<br>opposed to the placement of different files and directories, as in Jekyll.  The<br>plugins programatically create folder structure, etc, where in Jekyll I mostly<br>used the liquid markup to structure the site.  </p>
+<p>The problem is, then, that the user wants to extend hexo to do some sort of<br>custom thing.  If one had to publish a new plugin, that’d be too much work.  But<br>the theme level scripts folder allows one to extend the base hexo functionality<br>in ‘user space’ effectively.</p>
+
+          
           
         </div>
       </div>
@@ -209,7 +227,7 @@
       
 <nav id="article-nav">
   
-    <a href="/分类/8-petaled-md/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/分类/8-petaled-md/" id="article-nav-newer" class="article-nav-link-wrap col-sm-6">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -219,7 +237,7 @@
     </a>
   
   
-    <a href="/分类/6-hugging-md/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/分类/6-hugging-md/" id="article-nav-older" class="article-nav-link-wrap col-sm-6 pull-right">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">6-hugging.md</div>
     </a>
@@ -269,31 +287,75 @@
 <!-- END BLOG TAGS -->
 
 
-<!-- BEGIN FEATURED POSTS -->                            
-<!-- <h2>Featured Posts</h2>
+<!-- BEGIN FEATURED POSTS -->
+<h2>Featured</h2>
 <div class="recent-news margin-bottom-10">
   
-    
   
-    
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1542974861-fb2c57a956b0.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/1-ring-md/">ring1</a></h3>
+    </div>
+  </div>
   
-    
   
-    
   
-    
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1558882268-15aa056d885f.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/2-silver-md/">silver.md</a></h3>
+    </div>
+  </div>
   
-    
   
-    
   
-    
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1562845968-bee88c126674.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/3-gold-colored-rings-md/">gold-colored-rings.md</a></h3>
+    </div>
+  </div>
   
-    
   
-</div> -->
-<!-- END FEATURED POSTS -->                            
-
+  
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1450297166380-cabe503887e5.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/4-gemstone-md/">4-gemstone.md</a></h3>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1506630448388-4e683c67ddb0.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/5-flowers-md/">5-flowers.md</a></h3>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+<!-- END FEATURED POSTS -->
   </div>
 </div>
   </section>

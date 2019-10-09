@@ -12,18 +12,23 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta name="description" content="正文">
+  <meta name="description" content="Here are some of the resources I found helpful for learning to develop Dynamics NAV web service based applications. C/AL Programming:Introduction to CAL ProgrammingThis provides a good overview of the">
 <meta name="keywords" content="tag1,tag2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5-flowers.md">
 <meta property="og:url" content="https://zhu1531.github.io/分类/5-flowers-md/index.html">
 <meta property="og:site_name" content="Gentle-wind Accessories Co. Ltd">
-<meta property="og:description" content="正文">
+<meta property="og:description" content="Here are some of the resources I found helpful for learning to develop Dynamics NAV web service based applications. C/AL Programming:Introduction to CAL ProgrammingThis provides a good overview of the">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-29T08:22:39.896Z">
+<meta property="og:image" content="https://zhu1531.github.io/分类/5-flowers-md/photos/photo-1506630448388-4e683c67ddb0.jpg">
+<meta property="og:image" content="https://zhu1531.github.io/分类/5-flowers-md/photos/photo-1450297166380-cabe503887e5.jpg">
+<meta property="og:image" content="https://zhu1531.github.io/分类/5-flowers-md/photos/photo-1558882268-15aa056d885f.jpg">
+<meta property="og:image" content="https://zhu1531.github.io/分类/5-flowers-md/photos/photo-1534447536372-79d8f8974c5c.jpg">
+<meta property="og:updated_time" content="2019-10-09T03:39:13.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5-flowers.md">
-<meta name="twitter:description" content="正文">
+<meta name="twitter:description" content="Here are some of the resources I found helpful for learning to develop Dynamics NAV web service based applications. C/AL Programming:Introduction to CAL ProgrammingThis provides a good overview of the">
+<meta name="twitter:image" content="https://zhu1531.github.io/分类/5-flowers-md/photos/photo-1506630448388-4e683c67ddb0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Gentle-wind Accessories Co. Ltd" type="application/atom+xml">
   
@@ -54,7 +59,7 @@
   <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
   <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
   <link rel="stylesheet" href="/metronic/assets/corporate/css/custom.css">
-  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/red.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/blue.css">
   <link rel="stylesheet" href="/css/theme-styles.css">
   <!-- Theme styles END -->
 </head>
@@ -162,7 +167,6 @@
       </div>
       <div class="article-inner">
         
-        
         <header class="article-header">
           <ul class="blog-info">
             <!-- <li><i class="fa fa-user"></i> Anonymous</li> -->
@@ -200,7 +204,36 @@
         <div class="article-entry" itemprop="articleBody">
           
           <img alt="5-flowers.md" src="/photos/photo-1506630448388-4e683c67ddb0.jpg" />
-          <p>正文</p>
+          <p>Here are some of the resources I found helpful for learning to develop Dynamics NAV web service based applications.</p>
+<h4 id="C-AL-Programming"><a href="#C-AL-Programming" class="headerlink" title="C/AL Programming:"></a>C/AL Programming:</h4><p><a href="http://www.consultec.es/DocTutoriales/Introduction_to_CAL_Programming.pdf" target="_blank" rel="noopener">Introduction to CAL Programming</a><br>This provides a good overview of the basics of CAL programming, which can become necessary in building a web service applications when a custom codeunit or page extension is required.</p>
+<h4 id="Setting-up-Web-Services"><a href="#Setting-up-Web-Services" class="headerlink" title="Setting up Web Services:"></a>Setting up Web Services:</h4><p><a href="http://vjeko.com/blog/connecting-to-nav-through-web-services-recorded-session" target="_blank" rel="noopener">Vjecko Web Service Recorded Session</a><br>Vjecko.com has a lot of detailed articles about web service programming, but this older post has a pdf and recorded session that shows how to expose and connect to web services from a .NET application.  Unfortunately, he shows how to create Web Service references in .NET using the now-deprecated Web Refrence method (from .NET 2) instead of the more current Service Reference method.</p>
+<p><a href="http://blogs.msdn.com/b/freddyk/archive/2010/01/20/connecting-to-nav-web-services-from-c-using-service-reference-config-file-version.aspx" target="_blank" rel="noopener">Using Service Reference to Connect to Web Services</a><br>This explains how to use Service Reference, using code instead of XML web.config configuration, which I found difficult to configure.  (Each time I updated the service reference, I would have to reconfigure the XML).</p>
+<h4 id="NAV-Upgrade-Process"><a href="#NAV-Upgrade-Process" class="headerlink" title="NAV Upgrade Process:"></a>NAV Upgrade Process:</h4><p><a href="http://saurav-nav.blogspot.com/2012/12/nav-2013-upgrade-part-iv-sql-migration.html" target="_blank" rel="noopener">Migration to SQL Server from C/SIDE Database</a><br>In order to use web services, you don’t need to be using the Role Tailored Client, but you must be using the a SQL server based NAV database.  Web Services can be configured and exposed using the Classic Client for SQL Server Databases.</p>
+<p><a href="http://blogs.msdn.com/b/nav/archive/2012/03/05/rtc-debugging.aspx" target="_blank" rel="noopener">Debugging Code Called by Web Services</a><br>C/AL code won’t necessarily execute the same as it did in the Classic Client when called  as a Web Service.  C/AL code called as web service execute in the NAV Server tier, instead of the client.  <a href="http://msdn.microsoft.com/en-us/library/ff477107.aspx" target="_blank" rel="noopener">Certain functions</a> aren’t available for code running in the NAV Server, and some design changes need to be made (for example, CONFIRM dialogue boxes don’t make sense in the context of a web service).  To debug the codeunits called through web services (or the Role Tailored Client), you will need to use Visual Studio.<br><a href="http://msdn.microsoft.com/en-us/library/dd338765.aspx#SU" target="_blank" rel="noopener">More information.</a></p>
+<h4 id="Deploying-a-NET-Application"><a href="#Deploying-a-NET-Application" class="headerlink" title="Deploying a .NET Application:"></a>Deploying a .NET Application:</h4><p><a href="http://www.asp.net/mvc/overview/deployment/visual-studio-web-deployment/deploying-to-iis" target="_blank" rel="noopener">Deploying to IIS</a>  After you’ve built a .NET application that consumes .NET web services, you’ll have to find a way to deploy it on your servers, or Azure.  Connection strings can be used to specify different NAV servers for different environments (like development, QA, and prod).</p>
+
+          
+
+  <div class=" box">
+    
+      <a class="item" href="/photos/photo-1506630448388-4e683c67ddb0.jpg" rel="gallery_ck1iqjzgk000cbcm0od3ppi9d">
+        <img src="/photos/photo-1506630448388-4e683c67ddb0.jpg" itemprop="image">
+      </a>
+    
+      <a class="item" href="/photos/photo-1450297166380-cabe503887e5.jpg" rel="gallery_ck1iqjzgk000cbcm0od3ppi9d">
+        <img src="/photos/photo-1450297166380-cabe503887e5.jpg" itemprop="image">
+      </a>
+    
+      <a class="item" href="/photos/photo-1558882268-15aa056d885f.jpg" rel="gallery_ck1iqjzgk000cbcm0od3ppi9d">
+        <img src="/photos/photo-1558882268-15aa056d885f.jpg" itemprop="image">
+      </a>
+    
+      <a class="item" href="/photos/photo-1534447536372-79d8f8974c5c.jpg" rel="gallery_ck1iqjzgk000cbcm0od3ppi9d">
+        <img src="/photos/photo-1534447536372-79d8f8974c5c.jpg" itemprop="image">
+      </a>
+    
+  </div>
+
 
           
         </div>
@@ -209,7 +242,7 @@
       
 <nav id="article-nav">
   
-    <a href="/分类/6-hugging-md/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/分类/6-hugging-md/" id="article-nav-newer" class="article-nav-link-wrap col-sm-6">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -219,7 +252,7 @@
     </a>
   
   
-    <a href="/分类/4-gemstone-md/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/分类/4-gemstone-md/" id="article-nav-older" class="article-nav-link-wrap col-sm-6 pull-right">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">4-gemstone.md</div>
     </a>
@@ -269,31 +302,75 @@
 <!-- END BLOG TAGS -->
 
 
-<!-- BEGIN FEATURED POSTS -->                            
-<!-- <h2>Featured Posts</h2>
+<!-- BEGIN FEATURED POSTS -->
+<h2>Featured</h2>
 <div class="recent-news margin-bottom-10">
   
-    
   
-    
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1542974861-fb2c57a956b0.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/1-ring-md/">ring1</a></h3>
+    </div>
+  </div>
   
-    
   
-    
   
-    
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1558882268-15aa056d885f.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/2-silver-md/">silver.md</a></h3>
+    </div>
+  </div>
   
-    
   
-    
   
-    
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1562845968-bee88c126674.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/3-gold-colored-rings-md/">gold-colored-rings.md</a></h3>
+    </div>
+  </div>
   
-    
   
-</div> -->
-<!-- END FEATURED POSTS -->                            
-
+  
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1450297166380-cabe503887e5.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/4-gemstone-md/">4-gemstone.md</a></h3>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1506630448388-4e683c67ddb0.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/5-flowers-md/">5-flowers.md</a></h3>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+<!-- END FEATURED POSTS -->
   </div>
 </div>
   </section>

@@ -12,18 +12,18 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta name="description" content="正文">
+  <meta name="description" content="I try to get a lot of mileage out of the single AWS t2.micro instance I keep running,which means I have many different projects running on different paths on a single server.  Everytime I finish a pro">
 <meta name="keywords" content="tag1,tag2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gold-colored-rings.md">
 <meta property="og:url" content="https://zhu1531.github.io/分类/3-gold-colored-rings-md/index.html">
 <meta property="og:site_name" content="Gentle-wind Accessories Co. Ltd">
-<meta property="og:description" content="正文">
+<meta property="og:description" content="I try to get a lot of mileage out of the single AWS t2.micro instance I keep running,which means I have many different projects running on different paths on a single server.  Everytime I finish a pro">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-29T08:21:40.838Z">
+<meta property="og:updated_time" content="2019-10-09T03:38:52.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gold-colored-rings.md">
-<meta name="twitter:description" content="正文">
+<meta name="twitter:description" content="I try to get a lot of mileage out of the single AWS t2.micro instance I keep running,which means I have many different projects running on different paths on a single server.  Everytime I finish a pro">
   
     <link rel="alternative" href="/atom.xml" title="Gentle-wind Accessories Co. Ltd" type="application/atom+xml">
   
@@ -54,7 +54,7 @@
   <link rel="stylesheet" href="/metronic/assets/pages/css/portfolio.css">
   <link rel="stylesheet" href="/metronic/assets/corporate/css/style-responsive.css">
   <link rel="stylesheet" href="/metronic/assets/corporate/css/custom.css">
-  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/red.css">
+  <link rel="stylesheet" href="/metronic/assets/corporate/css/themes/blue.css">
   <link rel="stylesheet" href="/css/theme-styles.css">
   <!-- Theme styles END -->
 </head>
@@ -162,7 +162,6 @@
       </div>
       <div class="article-inner">
         
-        
         <header class="article-header">
           <ul class="blog-info">
             <!-- <li><i class="fa fa-user"></i> Anonymous</li> -->
@@ -200,8 +199,23 @@
         <div class="article-entry" itemprop="articleBody">
           
           <img alt="gold-colored-rings.md" src="/photos/photo-1562845968-bee88c126674.jpg" />
-          <p>正文</p>
+          <p>I try to get a lot of mileage out of the single AWS t2.micro instance I keep running,<br>which means I have many different projects running on different paths on a single server.  Everytime I finish a project, I have to relearn how to add new “locations” (paths) to the NGINX virtual host.</p>
+<p>I was really frustrated when I couldn’t figure out how to add a static location for the Jekyll<br>website I created for the game I’m developing.  I kept trying to do something like this:</p>
+<pre><code>location / {
+  root /home/ubuntu/personal-website;
+}
+location /array {
+  root /home/ubuntu/array-website/_site;
+}</code></pre><p>But everytime I tried to visit [<a href="http://ptsteadman.com/array]" target="_blank" rel="noopener">http://ptsteadman.com/array]</a>, I would get a 404 error.<br>I tried a bunch of things: I changed the “root” of the the <code>/</code> location to my game website, and it worked.  But no matter what I did, after using <code>sudo service nginx restart</code>,<br>trying to visit the <code>/array</code> location still resulted in a 404.  I couldn’t add the new route/location.</p>
+<p>Eventually, I realized that the text after the slash in the location is the directory that<br>NGINX will try to find in the “root” location.  So, <code>location /array</code> will look for the directory (or file)<br><code>array</code> in whatever directory “root” is set to.  So, I created a symlink to the root of my<br>static jekyll site with the command <code>ln -s /home/ubuntu/array-website/_site /home/ubuntu/array</code>, and<br>then I could set up my nginx config file in <code>sites-enabled</code> as below:</p>
+<pre><code>location / {
+  root /home/ubuntu/personal-website;
+}
+location /array {
+  root /home/ubuntu;
+}</code></pre><p>I think this stuff is all pretty obvious to someone who really understands NGINX and file serving,<br>but I only touch NGINX when I’ve finished a project and feel impatient to deploy.  I think it’s very confusing<br>that NGINX seems to handle paths differently between <code>/</code> locations and and <code>/foo</code> locations,<br>but a real understanding of NGINX might clear things up.</p>
 
+          
           
         </div>
       </div>
@@ -209,7 +223,7 @@
       
 <nav id="article-nav">
   
-    <a href="/分类/4-gemstone-md/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/分类/4-gemstone-md/" id="article-nav-newer" class="article-nav-link-wrap col-sm-6">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -219,7 +233,7 @@
     </a>
   
   
-    <a href="/分类/2-silver-md/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/分类/2-silver-md/" id="article-nav-older" class="article-nav-link-wrap col-sm-6 pull-right">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">silver.md</div>
     </a>
@@ -269,31 +283,75 @@
 <!-- END BLOG TAGS -->
 
 
-<!-- BEGIN FEATURED POSTS -->                            
-<!-- <h2>Featured Posts</h2>
+<!-- BEGIN FEATURED POSTS -->
+<h2>Featured</h2>
 <div class="recent-news margin-bottom-10">
   
-    
   
-    
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1542974861-fb2c57a956b0.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/1-ring-md/">ring1</a></h3>
+    </div>
+  </div>
   
-    
   
-    
   
-    
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1558882268-15aa056d885f.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/2-silver-md/">silver.md</a></h3>
+    </div>
+  </div>
   
-    
   
-    
   
-    
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1562845968-bee88c126674.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/3-gold-colored-rings-md/">gold-colored-rings.md</a></h3>
+    </div>
+  </div>
   
-    
   
-</div> -->
-<!-- END FEATURED POSTS -->                            
-
+  
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1450297166380-cabe503887e5.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/4-gemstone-md/">4-gemstone.md</a></h3>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  <div class="row margin-bottom-10">
+    <div class="col-md-4">
+      <img src="/photos/photo-1506630448388-4e683c67ddb0.jpg" class="img-responsive ">
+    </div>
+    <div class="col-md-8">
+      <h3><a href="https://zhu1531.github.io/分类/5-flowers-md/">5-flowers.md</a></h3>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+<!-- END FEATURED POSTS -->
   </div>
 </div>
   </section>
